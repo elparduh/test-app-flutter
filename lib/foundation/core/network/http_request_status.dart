@@ -40,3 +40,8 @@ class Unknown extends HttpRequestStatus {
   const Unknown(this.errorMessage) : super(errorMessage);
   final String errorMessage;
 }
+
+
+extension HttpRequestStatusX on HttpRequestStatus {
+  hasErrors() => this is! SuccessfulRequest || this is! SuccessfulNoContentRequest;
+}
