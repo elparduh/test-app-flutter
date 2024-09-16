@@ -8,6 +8,12 @@ class HttpRequestHandler {
   HttpRequestStatus createRequestStatus(Response response) =>
       switch (response.statusCode) {
         200 => const SuccessfulRequest(),
+        201 => const SuccessfulNoContentRequest(),
+        400 => const BadRequest(),
+        401 => const UnauthorizedRequest(),
+        403 => const ForbiddenRequest(),
+        404 => const NotFoundError(),
+        500 => const InternalServerError(),
         _ => Unknown(response.body)
       };
 
